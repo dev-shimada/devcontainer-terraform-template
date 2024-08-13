@@ -1,0 +1,6 @@
+.DS_Store
+.devcontainer
+.vscode
+.gitignore
+.terraform
+*.tfstate

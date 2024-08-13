@@ -1,0 +1,22 @@
+{
+  "name": "devcontainer-terraform-template",
+  "build": {
+    "context": ".",
+    "dockerfile": "./Dockerfile"
+  },
+  "mounts": [
+    "source=${env:HOME}/.aws,target=/root/.aws,type=bind"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder}/,target=/terraform,type=bind,consistency=delegated",
+  "workspaceFolder": "/terraform",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hashicorp.terraform",
+        "GitHub.copilot"
+      ]
+    }
+  },
+  "remoteUser": "root",
+  "postCreateCommand": "/bin/sh /terraform/.devcontainer/post_created.sh"
+}
